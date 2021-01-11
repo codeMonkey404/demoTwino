@@ -1,0 +1,25 @@
+server:
+    port: 8080
+    compression:
+        enabled: true
+        mime-types: text/html,text/xml,text/plain,text/css, application/javascript, application/json
+        min-response-size: 1024
+    servlet:
+        session:
+            cookie:
+                http-only: true
+        context-path: /twino
+
+spring:
+    datasource:
+        url: "jdbc:h2:mem:testdb"
+        driverClassName: "org.h2.Driver"
+        username: "sa"
+        password: "password"
+    jpa.database-platform: "org.hibernate.dialect.H2Dialect"
+    liquibase:
+        change-log: "classpath:db/changelog/changelog_master.xml"
+        url: ${spring.datasource.url}
+
+
+
