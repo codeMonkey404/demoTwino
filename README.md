@@ -1,7 +1,9 @@
 # demoTwino
 
 Basic implementation of task
+
 Not enoth time to make normal testing and validation/ swagger/ security/ properties.
+
 No data provided for validation.
 
 Read comments in the code to get into the logic. 
