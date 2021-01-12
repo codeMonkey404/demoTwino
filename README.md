@@ -1,7 +1,7 @@
 NOTES:
 
 Basic implementation of task
-Not enoth time to make normal testing and validation/ swagger/ security/ properties.
+Not enough time to make normal testing and validation/ swagger/ security (token/users and business operations)/ properties.
 No data provided for validation.
 
 Read comments in the code to get into the logic. 
