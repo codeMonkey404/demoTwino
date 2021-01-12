@@ -4,5 +4,5 @@ import java.util.UUID
 
 data class LoanMarkDto(
     val id: UUID,
-    val mark: String
+    val mark: String?
 )

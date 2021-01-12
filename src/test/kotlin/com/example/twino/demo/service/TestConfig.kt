@@ -10,4 +10,7 @@ class TestConfig {
     @MockBean
     lateinit var repo: LoanRepository
 
+    @MockBean
+    lateinit var scoring: ScoringService
+
 }

@@ -1,6 +1,7 @@
 package com.example.twino.demo.service
 
 import com.example.twino.demo.api.dto.*
+import org.springframework.data.domain.*
 import java.util.UUID
 
 /**
@@ -19,9 +20,10 @@ interface LoanService {
 
     /**
      * Возвращает список всех кредитных заявок
+     * @param listData данные для формирования страницы
      * @return список всех кредитных заявок
      */
-    fun list() : List<LoanDto>
+    fun list(listData: ListRequest) : Page<LoanDto>
 
     /**
      * Удаляет заявку
@@ -31,6 +33,9 @@ interface LoanService {
 
     /**
      * Проставляет оценку заявке
+     *
+     * Если параметр data.mark отсутсвует, то вызывает автоматичесую оценку, иначе проставляет отправленную оценку
+     *
      * @param data двнные заявки и новой отметки
      */
     fun mark(data: LoanMarkDto)

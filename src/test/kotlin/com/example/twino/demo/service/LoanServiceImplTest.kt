@@ -28,7 +28,6 @@ internal class LoanServiceImplTest {
             validMarks.map { Arguments.of(it) }.stream()
     }
 
-
     @Spy
     @InjectMocks
     private lateinit var subj: LoanServiceImpl
@@ -36,18 +35,21 @@ internal class LoanServiceImplTest {
     @Mock
     private lateinit var repo: LoanRepository
 
+    @Mock
+    private lateinit var scoring: ScoringService
+
     private val generator = TestDataGenerator
 
     @ParameterizedTest
     @MethodSource("getValidMarks")
-    fun `validateMarkPositivePass`(mark: String) {
+    fun validateMarkPositivePass(mark: String) {
         assertDoesNotThrow() {
             subj.validateMark(mark)
         }
     }
 
     @Test
-    fun `validateMarkFail`() {
+    fun validateMarkFail() {
         val mark = generator.str()
         assertThrows(IllegalArgumentException::class.java) {
             subj.validateMark(mark)

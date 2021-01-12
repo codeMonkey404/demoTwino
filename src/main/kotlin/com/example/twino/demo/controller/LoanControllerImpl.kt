@@ -4,6 +4,7 @@ import com.example.twino.demo.api.LoanController
 import com.example.twino.demo.api.dto.*
 import com.example.twino.demo.service.LoanService
 import org.slf4j.*
+import org.springframework.data.domain.*
 import org.springframework.web.bind.annotation.RestController
 import java.util.UUID
 
@@ -21,9 +22,9 @@ class LoanControllerImpl(
         return service.create(loanDto)
     }
 
-    override fun list() : List<LoanDto> {
+    override fun list(listData: ListRequest) : Page<LoanDto> {
         log.debug("/api/v1/loan/list call")
-        return service.list()
+        return service.list(listData)
     }
 
     override fun delete(data: LoanDeleteDto){

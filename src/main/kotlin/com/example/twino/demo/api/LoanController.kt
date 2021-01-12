@@ -1,6 +1,7 @@
 package com.example.twino.demo.api
 
 import com.example.twino.demo.api.dto.*
+import org.springframework.data.domain.*
 import org.springframework.web.bind.annotation.*
 import java.util.UUID
 
@@ -11,7 +12,7 @@ interface LoanController {
     fun create(@RequestBody loanDto: LoanDto): UUID
 
     @PostMapping("list")
-    fun list() : List<LoanDto>
+    fun list(@RequestBody listData: ListRequest) : Page<LoanDto>
 
     @PostMapping("delete")
     fun delete(@RequestBody data: LoanDeleteDto)
